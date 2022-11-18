@@ -1,10 +1,9 @@
-﻿namespace CliClient
+﻿using CommandDotNet;
+
+namespace CliClient;
+
+internal class Program
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
-    }
+    static int Main(string[] args) =>
+        new AppRunner<ShapeAnalyzerApp>().Run(args);    
 }
