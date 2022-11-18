@@ -1,12 +1,26 @@
+using CustomShapes.Square;
+using ShapeAnalyzer.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
+builder.Services
+    .AddShapeAnalyzer(cfg =>
+    {
+        cfg
+            .AddShapeBuilder<Square, SquareBuilder>()
+            .AddAnalysis<Square, SquareAnalysis>();
+    })
+    .AddEndpointsApiExplorer()
+    .AddSwaggerGen()
+    .AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseAuthorization();
 
