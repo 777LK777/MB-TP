@@ -4,6 +4,8 @@ using CliClient.Helpers;
 using CustomShapes.Square;
 using ShapeAnalyzer;
 using ShapeAnalyzer.Geometry;
+using System.Linq.Expressions;
+using ShapeAnalyzer.Geometry.Helpers;
 
 namespace CliClient;
 
@@ -20,6 +22,7 @@ internal class ShapeAnalyzerApp
         _shapeFactory = new ShapeFactory()
             .AddShapeBuilder<Square, SquareBuilder>();
         _shapeAnalyzer = new ShapeAnalyzerBuilder()
+            .SetAccuracy(7)
             .AddAnalysis<Square, SquareAnalysis>()
             .Build();
 
