@@ -9,4 +9,5 @@ public interface IShapeAnalyzerBuilder
     IShapeAnalyzerBuilder AddAnalysis<TShape, TAnalysisStrategy>()
         where TShape : IShape
         where TAnalysisStrategy : AnalysisBase, new();
+    IShapeAnalyzerBuilder SetAccuracy(int fractionalDigits);
 }
