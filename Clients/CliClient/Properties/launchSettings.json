@@ -4,10 +4,10 @@
       "commandName": "Project",
       //"commandLineArgs": "shapes"
       //"commandLineArgs": "circle [0;0] [0;1] -f",
-      //"commandLineArgs": "triangle [0;0] [0;1] [1;0] -f",
-      //"commandLineArgs": "square [0;0] [1;1] -f" analysis
+      "commandLineArgs": "triangle [0;0] [0;3] [4;0] -f",
+      //"commandLineArgs": "square [0;0] [1;1] -f"// analysis
 
-      "commandLineArgs": "analysis square '[0;0] [1;1]'"
+      //"commandLineArgs": "analysis square '[0;0] [1;1]'"
     }
   }
 }

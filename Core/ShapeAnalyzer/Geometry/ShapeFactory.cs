@@ -1,4 +1,5 @@
-﻿using ShapeAnalyzer.Geometry.Helpers;
+﻿using ShapeAnalyzer.Geometry.Shapes;
+using ShapeAnalyzer.Geometry.Helpers;
 
 namespace ShapeAnalyzer.Geometry;
 
@@ -26,7 +27,13 @@ public class ShapeFactory : IShapeFactory
 
     public IShape Create(string shapeName, params Dictionary<Axis, double>[] coordinates)
     {
-        var builder = _shapeToBuilderMatchings[shapeName.ToLower()];
-        return builder.Build(coordinates);
+        IShape? shape = shapeName switch
+        {
+            "circle" => new Circle(coordinates.ToList()),
+            "triangle" => new Triangle(coordinates.ToList()),
+            _ => null
+        };
+
+        return shape ?? _shapeToBuilderMatchings[shapeName.ToLower()].Build(coordinates);
     }
 }

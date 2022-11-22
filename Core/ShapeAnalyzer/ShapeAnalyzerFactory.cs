@@ -40,4 +40,12 @@ public class ShapeAnalyzerBuilder : IShapeAnalyzerBuilder
 
         return _shapeAnalyzer;
     }
+
+    public IShapeAnalyzerBuilder SetAccuracy(int fractionalDigits)
+    {
+        foreach (var matching in _shapesAnalyzesMatchings)
+            matching.Value.Accuracy = fractionalDigits;
+
+        return this;
+    }
 }
