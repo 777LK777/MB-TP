@@ -26,7 +26,7 @@ internal class ShapeAnalyzerApp
             .AddAnalysis<Square, SquareAnalysis>()
             .Build();
 
-        _coordReader = new StringToCordinateConverter();
+        _coordReader = new StringToCordinateConverter(';');
         _shapeFinder = new ShapeFinder();
     }
 
