@@ -87,7 +87,7 @@ internal class TriangleAnalysis : AnalysisBase
     {
         var halfPerimeter = sidesSquares.Sum() / 2;
 
-        var op = sidesSquares.Aggregate(0.0, (seed, side) =>
+        var op = sidesSquares.Aggregate(1.0, (seed, side) =>
         {
             var diff = halfPerimeter - side;
             return seed *= diff;
