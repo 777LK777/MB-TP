@@ -2,11 +2,17 @@
 
 internal class StringToCordinateConverter
 {
+    private readonly char _separator;
+    public StringToCordinateConverter(char separator)
+    {
+        _separator = separator;
+    }
+
     public Dictionary<TEnum, double> Convert<TEnum>(string input) where TEnum : struct, Enum
     {
         var result = new Dictionary<TEnum, double>();
         var axes = Enum.GetValues<TEnum>();
-        var coord = input.Trim('[', ']').Split(';');
+        var coord = input.Trim('[', ']').Split(_separator);
 
         for (int i = 0; i < axes.Length; i++)
         {
